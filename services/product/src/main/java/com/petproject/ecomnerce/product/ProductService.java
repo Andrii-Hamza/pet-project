@@ -56,7 +56,7 @@ public class ProductService {
     public ProductResponse findById(Integer productId) {
         return repository.findById(productId)
                 .map(mapper::toProductResponse)
-                .orElseThrow(() -> new EntityNotFoundException("Product not found with the ID:" + productId));
+                .orElseThrow(() -> new EntityNotFoundException("Product not found with the claudeMode_ID:" + productId));
     }
 
     public List<ProductResponse> findAll() {

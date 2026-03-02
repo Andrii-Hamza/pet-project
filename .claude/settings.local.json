@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "ask": [
+      "ask me before you do ANY changes in the system or code"
+    ]
+  }
+}

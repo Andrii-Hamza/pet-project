@@ -2,9 +2,7 @@ package com.petproject.ecomnerce.product;
 
 import com.petproject.ecomnerce.exception.ProductPurchaseException;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -56,7 +54,7 @@ public class ProductService {
     public ProductResponse findById(Integer productId) {
         return repository.findById(productId)
                 .map(mapper::toProductResponse)
-                .orElseThrow(() -> new EntityNotFoundException("Product not found with the ID:" + productId));
+                .orElseThrow(() -> new EntityNotFoundException("Product not found with the MAIN_ID:" + productId));
     }
 
     public List<ProductResponse> findAll() {

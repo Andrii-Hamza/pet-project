@@ -50,6 +50,7 @@ package-lock.json
 
 ### Claude Code ###
 .claude/
+CLAUDE.md
 
 ### Environment / Secrets ###
 .env

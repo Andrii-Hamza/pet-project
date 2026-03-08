@@ -6,11 +6,12 @@ import com.petproject.ecommerce.kafka.OrderConfirmation;
 import com.petproject.ecommerce.kafka.OrderProducer;
 import com.petproject.ecommerce.orderline.OrderLineRequest;
 import com.petproject.ecommerce.orderline.OrderLineService;
+import com.petproject.ecommerce.payment.PaymentClient;
+import com.petproject.ecommerce.payment.PaymentRequest;
 import com.petproject.ecommerce.product.ProductClient;
 import com.petproject.ecommerce.product.PurchaseRequest;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class OrderService {
     private final OrderMapper mapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentClient paymentClient;
 
     public Integer createOrder(OrderRequest request) {
         var customer = this.customerClient.findCustomerById(request.customerId())
@@ -46,7 +48,14 @@ public class OrderService {
             );
         }
 
-        // todo start payment process
+        var paymentRequest = new PaymentRequest(
+                request.amount(),
+                request.paymentMethod(),
+                order.getId(),
+                order.getReference(),
+                customer
+        );
+        paymentClient.requestOrderPayment(paymentRequest);
 
         orderProducer.sendOrderConfirmation(
                 new OrderConfirmation(

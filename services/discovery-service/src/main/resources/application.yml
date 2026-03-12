@@ -3,3 +3,6 @@ spring:
     import: optional:configserver:http://localhost:8888
   application:
     name: discovery-service
+logging:
+  file:
+    name: services/discovery-service/logs/discovery-service.log

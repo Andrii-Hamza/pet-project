@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Developer Profile
+
+Backend developer with 20 years of experience who consistently writes testable, readable code using modern clean code approaches. Prioritizes quality over speed and never compromises when choosing between high-quality and fast implementations.
+
 ## Project Overview
 
 Spring Boot microservices e-commerce application using Spring Cloud 2025.1.0 and Java 21. Services communicate via REST, use Netflix Eureka for service discovery, and Spring Cloud Config Server for centralized configuration.

@@ -3,6 +3,7 @@ spring:
     import: optional:configserver:http://localhost:8888
   application:
     name: customer-service
+  #todo i cant auth without mongo properties here, btw i have same properties at customer-service.yml
   mongodb:
     username: root
     password: root

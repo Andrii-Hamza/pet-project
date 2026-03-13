@@ -3,3 +3,10 @@ spring:
     import: optional:configserver:http://localhost:8888
   application:
     name: notification-service
+  mongodb:
+    username: root
+    password: root
+    host: localhost
+    port: 27017
+    database: customer
+    authentication-database: admin

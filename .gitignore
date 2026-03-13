@@ -59,6 +59,8 @@ CLAUDE.md
 
 ### Spring Boot ###
 *.pid
+**/logs/
+*.log.*.gz
 
 ### Docker ###
 **/docker-compose.override.yml

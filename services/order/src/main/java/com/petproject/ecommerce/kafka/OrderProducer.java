@@ -21,6 +21,16 @@ public class OrderProducer {
                 .withPayload(orderConfirmation)
                 .setHeader(KafkaHeaders.TOPIC, "order-topic")
                 .build();
-        kafkaTemplate.send(message);
+        kafkaTemplate.send(message)
+                .whenComplete((result, ex) -> {
+                    if (ex != null) {
+                        log.error("Failed to send order confirmation for order {}: {}",
+                                orderConfirmation.orderReference(), ex.getMessage());
+                    } else {
+                        log.info("Order confirmation sent successfully for order {}",
+                                orderConfirmation.orderReference());
+                    }
+                });
+        //todo same as notificationProducer
     }
 }

@@ -23,6 +23,16 @@ public class NotificationProducer {
                 .withPayload(request)
                 .setHeader(TOPIC, "payment-topic")
                 .build();
-        kafkaTemplate.send(message);
+        kafkaTemplate.send(message)
+                .whenComplete((result, ex) -> {
+                    if (ex != null) {
+                        log.error("Failed to send payment notification for order {}: {}",
+                                request.orderReference(), ex.getMessage());
+                    } else {
+                        log.info("Payment notification sent successfully for order {}",
+                                request.orderReference());
+                    }
+                });
+        //todo it was only kafkaTemplate.send(message); check it later (claude wrote it for some reason)
     }
 }

@@ -16,6 +16,7 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring.json.type.mapping: paymentConfirmation:com.petproject.ecommerce.notification.PaymentNotificationRequest
+        #max.block.ms: 5000
 
 server:
   port: 8060

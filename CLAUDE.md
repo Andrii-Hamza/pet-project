@@ -102,7 +102,7 @@ mvn test -f services/<service-name>/pom.xml -Dtest=ClassName
 ## Resources & References
 
 ### Architecture & Diagrams
-![Architecture Diagram](resourses/photo_2026-03-04_14-57-45.jpg)
+![Architecture Diagram](resources/photo_2026-03-04_14-57-45.jpg)
 
 ### Books & Documentation
 - [Clean Code](file:///C:/Users/Andrii/Downloads/BIBLE%20-%20Clean%20Code%20-%20Robert%20Cecil%20Martin.pdf)

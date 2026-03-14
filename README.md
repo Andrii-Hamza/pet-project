@@ -4,7 +4,7 @@ A microservices-based e-commerce platform built with **Spring Boot 4.0.3**, **Sp
 
 ## Architecture
 
-![Architecture Diagram](resourses/photo_2026-03-04_14-57-45.jpg)
+![Architecture Diagram](resources/photo_2026-03-04_14-57-45.jpg)
 
 The system follows a microservices architecture with:
 

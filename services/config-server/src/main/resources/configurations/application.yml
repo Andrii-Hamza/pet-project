@@ -12,4 +12,9 @@ spring:
     open-in-view: false
 logging:
   file:
-    name: services/${spring.application.name}/logs/${spring.application.name}.log
+    name: resources/${spring.application.name}/logs/${spring.application.name}.log
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

@@ -101,18 +101,19 @@ services:
     networks:
       - microservices-net
 
-  keycloak:
-    container_name: keycloak-ms
-    image: quay.io/keycloak/keycloak:24.0.2
-    ports:
-      - 9098:8080
-    environment:
-      KEYCLOAK_ADMIN: root
-      KEYCLOAK_ADMIN_PASSWORD: root
-    networks:
-      - microservices-net
-    command:
-      - "start-dev"
+#  keycloak:
+#    container_name: keycloak-ms
+#    image: quay.io/keycloak/keycloak:24.0.2
+#    ports:
+#      - 9098:8080
+#    environment:
+#      KEYCLOAK_ADMIN: root
+#      KEYCLOAK_ADMIN_PASSWORD: root
+#    networks:
+#      - microservices-net
+#    command:
+#      - "start-dev"
+#pom.xml(gateway) uncomment security, SecurityConfig in gateway logic, and security in application yml to gateway
 
 networks:
   microservices-net:

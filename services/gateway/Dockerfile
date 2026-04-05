@@ -1,3 +1,4 @@
+# ---- Stage 1: Build ----
 FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 COPY mvnw .
@@ -7,6 +8,7 @@ RUN chmod +x mvnw && ./mvnw dependency:go-offline -B
 COPY src src
 RUN ./mvnw package -DskipTests -B
 
+# ---- Stage 2: Runtime ----
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/gateway-0.0.1-SNAPSHOT.jar app.jar

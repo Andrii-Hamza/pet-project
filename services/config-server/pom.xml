@@ -31,19 +31,27 @@
 		<spring-cloud.version>2025.1.0</spring-cloud.version>
 	</properties>
 	<dependencies>
+
+		<!-- Provides the core Config Server functionality — turns this service
+		into a centralized configuration server for all other microservices -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
+		<!-- Provides testing dependencies (JUnit 5, Mockito, AssertJ) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- Imports Spring Cloud BOM — manages compatible versions for all Spring Cloud
+			dependencies (so they don't need explicit version tags - <version>4.2.1</version>) -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -51,11 +59,15 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
 		<plugins>
+
+			<!-- Packages the application into an executable fat JAR
+			     and enables running it using mvn spring-boot:run -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

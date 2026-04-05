@@ -31,23 +31,33 @@
 		<spring-cloud.version>2025.1.0</spring-cloud.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+
+		<!-- The SERVER-SIDE dependency that turns Discovery Service into a Eureka Server — a
+		service registry where all microservices register themselves and discover each other -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
+		<!-- Client-side dependency that allows this service to fetch its configuration from the Config Server at startup -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
+		<!-- Provides testing dependencies (JUnit 5, Mockito, AssertJ) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- Imports Spring Cloud BOM — manages compatible versions for all Spring Cloud
+			dependencies (so they don't need explicit version tags - <version>4.2.1</version>) -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -61,6 +71,9 @@
 	<build>
 		<plugins>
 			<plugin>
+
+				<!-- Packages the application into an executable fat JAR
+                     and enables running it using mvn spring-boot:run -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
